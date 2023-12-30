@@ -23,7 +23,7 @@ const EventItem = ({ event }) => {
           </div>
           <div className={classes.address}>
             <AddressIcon />
-            <address>{event?.location.replace(", ", "\n")}</address>
+            <address>{event?.location?.replace(", ", "\n")}</address>
           </div>
         </div>
         <div className={classes.actions}>
