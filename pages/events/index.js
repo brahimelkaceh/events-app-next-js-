@@ -1,6 +1,7 @@
 import EventList from "@/components/events/EventList";
 import EventSearch from "@/components/events/EventSearch";
 import { getAllEvents } from "@/helpers/api-utils";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 
@@ -11,6 +12,12 @@ const EventsPage = ({ events }) => {
   };
   return (
     <Fragment>
+      <Head>
+        {/* Add your custom head elements here */}
+        <title>All Events</title>
+        <meta name="description" content="Your page description" />
+        {/* Other meta tags, stylesheets, scripts, etc. */}
+      </Head>
       <EventSearch onSearch={onSearch} />
       <EventList events={events} />
     </Fragment>

@@ -2,6 +2,7 @@ import EventList from "@/components/events/EventList";
 import ResultTitle from "@/components/events/ResultTitle";
 import Button from "@/components/ui/Button";
 import { getFilteredEvents } from "@/helpers/api-utils";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 import useSWR from "swr";
@@ -33,6 +34,14 @@ const FilterEventsPage = () => {
   }, [data]);
   const year = +filteredData[0];
   const month = +filteredData[1];
+  const pageHead = (
+    <Head>
+      {/* Add your custom head elements here */}
+      <title>{`all events on ${month}/${year}`}</title>
+      <meta name="description" content="Your page description" />
+      {/* Other meta tags, stylesheets, scripts, etc. */}
+    </Head>
+  );
   const filteredEvents = loadedEvents.filter((event) => {
     const eventDate = new Date(event.date);
     return (
@@ -51,6 +60,7 @@ const FilterEventsPage = () => {
   ) {
     return (
       <Fragment>
+        {pageHead}
         <p className="center">Invalid Enter. Please adjust your values!</p>
         <div className="center">
           <Button link="/events">Show All Events</Button>
@@ -62,6 +72,7 @@ const FilterEventsPage = () => {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <Fragment>
+        {pageHead}
         <p className="center">No Events Found !</p>
         <div className="center">
           <Button link="/events">Show All Events</Button>
@@ -72,6 +83,7 @@ const FilterEventsPage = () => {
   const date = new Date(year, month - 1);
   return (
     <Fragment>
+      {pageHead}
       <ResultTitle date={date} />
       <EventList events={filteredEvents} />
     </Fragment>

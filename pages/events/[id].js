@@ -2,6 +2,7 @@ import EventContent from "@/components/event-detail/EventContent";
 import EventLogistic from "@/components/event-detail/EventLogistic";
 import EventSummary from "@/components/event-detail/EventSummary";
 import { getAllEvents, getEventById } from "@/helpers/api-utils";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 
@@ -11,6 +12,12 @@ const EventDetailPage = ({ event }) => {
   }
   return (
     <Fragment>
+      <Head>
+        {/* Add your custom head elements here */}
+        <title>{event.title}</title>
+        <meta name="description" content="Your page description" />
+        {/* Other meta tags, stylesheets, scripts, etc. */}
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistic event={event} />
       <EventContent>

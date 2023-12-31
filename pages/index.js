@@ -1,8 +1,15 @@
 import EventList from "@/components/events/EventList";
 import { getFeaturedEvents } from "@/helpers/api-utils";
+import Head from "next/head";
 
 const Home = ({ data }) => (
   <div>
+    <Head>
+      {/* Add your custom head elements here */}
+      <title>Next Js Events</title>
+      <meta name="description" content="Your page description" />
+      {/* Other meta tags, stylesheets, scripts, etc. */}
+    </Head>
     <EventList events={data} />
   </div>
 );
