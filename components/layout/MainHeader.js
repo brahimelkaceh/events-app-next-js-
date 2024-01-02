@@ -6,13 +6,13 @@ function MainHeader() {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <Link href="/">NextEvents V4 </Link>
+        <Link href="/">NextEvents V5 </Link>
         <span
           style={{
             fontSize: "12px",
           }}
         >
-          (api routes)
+          (context)
         </span>
       </div>
       <nav className={classes.navigation}>
