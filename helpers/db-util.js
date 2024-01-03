@@ -20,7 +20,11 @@ export const getDocument = async (client, collection, sort) => {
     const db = client.db();
 
     // Using { id } as the query for the specific id
-    const result = await db.collection(collection).find().sort(sort).toArray();
+    const result = await db
+      .collection("comments")
+      .find()
+      .sort({ _id: -1 })
+      .toArray();
 
     if (result.length === 0) {
       // Handle the case when no document is found with the specified id
